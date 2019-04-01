@@ -17,34 +17,34 @@ To setup this application we did the following which includes installation and
 updating of the javascript packages:
 
 1. Generate a new rails applicaiton, but with out the asset pipeline: `
-  ```
-  rails new reactrails --webpack=react --skip-coffee --skip-javascript --skip-sprockets
-  ```
+   ```
+   rails new reactrails --webpack=react --skip-coffee --skip-javascript --skip-sprockets
+   ```
 1. Change to the application directory:
-  ```
-  cd reactrails
-  ```
+   ```
+   cd reactrails
+   ```
 1. Edit the Gemfile to include :
-  ```
-  gem 'react-rails'
-  ```
+   ```
+   gem 'react-rails'
+   ```
 1. Install the gem:
-  ```
-  bundle install
-  ```
+   ```
+   bundle install
+   ```
 1. Add reactstrap via yarn:
-  ```
-  yarn add reactstrap
-  ```
+   ```
+   yarn add reactstrap
+   ```
 1. Add bootstrap via yarn:
-  ```
-  yarn add bootstrap@^4.3
-  ```
+   ```
+   yarn add bootstrap@^4.3
+   ```
 1. Double check the installation, which should not yield any errors:
-  ```
-  yarn check
-  ```
+   ```
+   yarn check
+   ```
 1. Finish the react installation:
-  ```
-  rails generate react:install
-  ```
+   ```
+   rails generate react:install
+   ```
