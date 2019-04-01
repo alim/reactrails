@@ -16,35 +16,35 @@ The application model behind this example has the following goals in mind:
 To setup this application we did the following which includes installation and
 updating of the javascript packages:
 
-  1. Generate a new rails applicaiton, but with out the asset pipeline: `
+1. Generate a new rails applicaiton, but with out the asset pipeline: `
   ```
   rails new reactrails --webpack=react --skip-coffee --skip-javascript --skip-sprockets
   ```
-  1. Change to the application directory:
+1. Change to the application directory:
   ```
   cd reactrails
   ```
-  1. Edit the Gemfile to include :
+1. Edit the Gemfile to include :
   ```
   gem 'react-rails'
   ```
-  1. Install the gem:
+1. Install the gem:
   ```
   bundle install
   ```
-  1. Add reactstrap via yarn:
+1. Add reactstrap via yarn:
   ```
   yarn add reactstrap
   ```
-  1. Add bootstrap via yarn:
+1. Add bootstrap via yarn:
   ```
   yarn add bootstrap@^4.3
   ```
-  1. Double check the installation, which should not yield any errors:
+1. Double check the installation, which should not yield any errors:
   ```
   yarn check
   ```
-  1. Finish the react installation:
+1. Finish the react installation:
   ```
   rails generate react:install
   ```
