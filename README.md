@@ -11,7 +11,7 @@ The application model behind this example has the following goals in mind:
 1. Simplify the organization of assets to only use webpack/wepacker without the need for the asset pipeline
 1. Support simple ERB templates with React components handling all the view layer presentation and interactions
 
-# Setup
+# Installation
 
 To setup this application we did the following which includes installation and
 updating of the javascript packages:
@@ -25,9 +25,9 @@ rails new reactrails --webpack=react --skip-coffee --skip-javascript --skip-spro
 cd reactrails
 ```
 1. Edit the Gemfile to include :
-   ```
-   gem 'react-rails'
-   ```
+ ```
+ gem 'react-rails'
+ ```
 1. Install the gem:
 ```
 bundle install
@@ -43,4 +43,8 @@ yarn add bootstrap@^4.3
 1. Double check the installation, which should not yield any errors:
 ```
 yarn check
+```
+1. Finish the react installation:
+```
+rails generate react:install
 ```
