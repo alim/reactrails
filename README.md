@@ -40,6 +40,10 @@ updating of the javascript packages:
    ```
    yarn add bootstrap@^4.3
    ```
+1. Update javascript core modules:
+   ```
+   yarn add core-js@3
+   ```
 1. Double check the installation, which should not yield any errors:
    ```
    yarn check
@@ -48,3 +52,35 @@ updating of the javascript packages:
    ```
    rails generate react:install
    ```
+
+After installation, you can run the `webpack-dev-server` in a separate terminal
+window. This server will automatically compile and javascript or JSX code in
+the `app/javascript` directory.
+
+# Initial Controller and View Setup
+
+1. Create the home controller.
+   ```
+   rails g controller Home index
+   ```
+1. Add the root route to the config/routes.rb file.
+   ```
+   root to: 'home#index'
+   ```
+1. Update the view template app/views/layouts/application.html.erb by adding:
+   ```
+   <%= javascript_pack_tag 'application' %>
+   ```
+   This line adds in the webpack entry point for the javascript components
+   that will be used by our application. From the same file, remove the
+   asset pipeline helper, since we are not using the asset pipeline:
+   ```
+   <%= stylesheet_link_tag 'application', media: 'all' %>
+   ```
+1. Update config/initializers/content_security_policy.rb to allow content from
+   webpack-dev-server.
+   ```
+   policy.connect_src :self, :https, 'http://localhost:3035', 'ws://localhost:3035' if Rails.env.development?
+   ```
+1. Remove the auto-generated hello-world component created by the webpacker
+   react installation, by deleting the file `app/javascript/packs/hello_react.jsx`
