@@ -136,11 +136,13 @@ modification are:
          isOpen: false
        };
      }
+
      toggle() {
        this.setState({
          isOpen: !this.state.isOpen
        });
      }
+
      render () {
        return (
          <React.Fragment>
@@ -161,7 +163,7 @@ modification are:
                      </DropdownToggle>
                      <DropdownMenu right>
                        <DropdownItem>
-                         <NavLink href="/contacts/new">Contact Us</NavLink>
+                         Option 1
                        </DropdownItem>
                        <DropdownItem>
                          Option 2
@@ -180,8 +182,6 @@ modification are:
      }
    }
 
-   ExampleNav.propTypes = {};
-
    export default ExampleNav
    ```
 
@@ -196,3 +196,44 @@ modification are:
 
 This now give us a basic navigation bar that will be used for the application
 layout and it's related view files.
+
+# Adding a Component to a View template
+
+The previous section added the navigation bar to the layout template which will
+add the navigation bar to all our views. We can obviously use different
+layout files, but that is a topic for another section.
+
+1. We are going to use the Jumbotron component and add it to the index template.
+   We need to create a `ExampleJumbotron.jsx` in `/app/javascript/components`.
+   The code for using the Jumbotron component is below and should go in the
+   `ExampleJumbotron.jsx` file.
+   ```
+   import React from 'react';
+   import { Jumbotron, Button} from 'reactstrap';
+
+   const ExampleJumbotron = (props) => {
+     return (
+       <div>
+         <Jumbotron>
+           <h1 className="display-3">Hello, world!</h1>
+           <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
+           <hr className="my-2" />
+           <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+           <p className="lead">
+             <Button color="primary">Learn More</Button>
+           </p>
+         </Jumbotron>
+       </div>
+     );
+   };
+
+   export default ExampleJumbotron;
+   ```
+
+1. Add the component to the `/app/views/home/index.html.erb` using the
+   following:
+   ```
+   <%= react_component("ExampleJumbotron") %>
+   <h1>Home#index</h1>
+   <p>Find me in app/views/home/index.html.erb</p>
+   ```

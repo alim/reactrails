@@ -23,11 +23,13 @@ class ExampleNav extends React.Component {
       isOpen: false
     };
   }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
+
   render () {
     return (
       <React.Fragment>
@@ -48,7 +50,7 @@ class ExampleNav extends React.Component {
                   </DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>
-                      <NavLink href="/contacts/new">Contact Us</NavLink>
+                      Option 1
                     </DropdownItem>
                     <DropdownItem>
                       Option 2
@@ -66,7 +68,5 @@ class ExampleNav extends React.Component {
     );
   }
 }
-
-ExampleNav.propTypes = {};
 
 export default ExampleNav
