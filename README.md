@@ -237,3 +237,35 @@ layout files, but that is a topic for another section.
    <h1>Home#index</h1>
    <p>Find me in app/views/home/index.html.erb</p>
    ```
+
+Your `/app/javascript` directory should have the following structure, after
+executing the commands from the previous sections:
+```
+javascript
+├── components
+│   ├── ExampleJumbotron.jsx
+│   └── ExampleNav.jsx
+└── packs
+    ├── application.js
+    └── server_rendering.js
+```
+
+# Adding a Resource, View and Form
+
+For a standard Rails application, we will typically define one or more web-based
+resources that are presented by a database model, a controller for interacting
+with the views and the database model, and a view layer for interacting with
+the end user. For our example, we are going to generate a _Contact_ resource
+that will use React components in the view layer.
+
+1. Generate a scaffold for a contact resource:
+   ```
+   rails g scaffold Contact name:string email:string subject:string message:text
+   ```
+
+1. Remove unneeded items, since we are not using the asset pipeline, but
+   webpacker instead.
+   ```
+   rm app/assets/javascripts/contacts.js
+   rm app/assets/stylesheets/contacts.css
+   rm app/assets/stylesheets/scaffold.css
