@@ -50,7 +50,7 @@ class ExampleNav extends React.Component {
                   </DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>
-                      Option 1
+                      <NavLink href="/contacts/new">Contact Us</NavLink>
                     </DropdownItem>
                     <DropdownItem>
                       Option 2

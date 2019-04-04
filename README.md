@@ -269,3 +269,15 @@ that will use React components in the view layer.
    rm app/assets/javascripts/contacts.js
    rm app/assets/stylesheets/contacts.css
    rm app/assets/stylesheets/scaffold.css
+   ```
+
+1. 1. Run `rake db:setup` if you have not setup the database yet or
+   `rake db:migrate`, if you have already setup the database.
+
+1. Setup the *Options* menu to include the new contact page. In the
+   `ExampleNav.jsx` file replace the _Option 1_ value with the
+   NavLink element shown below. This will now navigate you to the new contacts
+   form:
+   ```
+   <NavLink href="/contacts/new">Contact Us</NavLink>
+   ```
