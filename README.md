@@ -271,7 +271,7 @@ that will use React components in the view layer.
    rm app/assets/stylesheets/scaffold.css
    ```
 
-1. 1. Run `rake db:setup` if you have not setup the database yet or
+1. Run `rake db:setup` if you have not setup the database yet or
    `rake db:migrate`, if you have already setup the database.
 
 1. Setup the *Options* menu to include the new contact page. In the
@@ -280,4 +280,58 @@ that will use React components in the view layer.
    form:
    ```
    <NavLink href="/contacts/new">Contact Us</NavLink>
+   ```
+
+1. Create a contact form component that will be used for the new and edit views. This component will be located in *app/javascript/components/ContactForm.jsx*.
+   ```
+   import React from 'react';
+   import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+
+   /*
+    * Contact Form is our component for collecting contact information.
+    */
+   export default class ContactForm extends React.Component {
+     constructor(props) {
+       super(props);
+       this.state = {email: ''};
+       console.log(props)
+       this.handleChange = this.handleChange.bind(this);
+       this.handleSubmit = this.handleSubmit.bind(this);
+     }
+
+     handleChange(event) {
+       this.setState({email: event.target.value});
+       console.log( this.state.email );
+     }
+
+     handleSubmit(event) {
+       this.setState({email: event.target.value});
+       console.log( this.state.email )
+     }
+
+     render() {
+       return (
+         <Form className="form" onSubmit={ (e) => this.handleSubmit(e) }>
+           <FormGroup>
+             <Label for="exampleEmail">Email Address:</Label>
+             <Input type="email" name="email" id="exampleEmail"
+                     placeholder="username@example.com"
+                     value={this.state.value} onChange={this.handleChange}
+             />
+           </FormGroup>
+           <Button>Submit</Button>
+         </Form>
+       );
+     }
+   }
+   ```
+
+1. Update the *app/views/new.html.erb* file to include the new component.
+   ```
+   <h1>New Contact</h1>
+
+   <%= react_component("ContactForm", action: contacts_path, method: 'POST',
+                       'accept-charset': "UTF-8") %>
+
+   <%= link_to 'Back', contacts_path %>
    ```
