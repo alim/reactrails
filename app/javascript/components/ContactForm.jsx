@@ -19,13 +19,23 @@ export default class ContactForm extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+
     this.setState({email: event.target.value});
-    console.log( this.state.email )
+    // debugger;
+    fetch ('/contacts', {
+      method: 'POST',
+      body: data,
+    });
   }
 
   render() {
     return (
       <Form className="form" onSubmit={ (e) => this.handleSubmit(e) }>
+
+        <input type='hidden' name='authenticity_token' value={this.props.authenticity_token} />
+
         <FormGroup>
           <Label for="exampleEmail">Email Address:</Label>
           <Input type="email" name="email" id="exampleEmail"
